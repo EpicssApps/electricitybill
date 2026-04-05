@@ -47,12 +47,17 @@
         .navbar .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+        }
+
+        .navbar .logo-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: contain;
         }
 
         .navbar .logo-text {
@@ -146,6 +151,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .btn-primary {
@@ -166,6 +172,20 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-google-play {
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-google-play:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-google-play img {
+            height: 60px;
+            width: auto;
         }
 
         .btn-secondary {
@@ -389,12 +409,17 @@
         .footer-brand .logo-icon {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+        }
+
+        .footer-brand .logo-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: contain;
         }
 
         .footer-brand .logo-text {
@@ -490,6 +515,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .btn-google-play img {
+                height: 50px;
+            }
         }
     </style>
 </head>
@@ -497,10 +526,12 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-           <a href="#" class="logo">
-    <div class="logo-icon">⚡</div>
-    <span class="logo-text">EpicX Apps</span>
-</a>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <img src="application-Images/epicxapps_logo_t.png" alt="EpicX Apps Logo">
+            </div>
+            <span class="logo-text">EpicX Apps</span>
+        </a>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
@@ -519,8 +550,8 @@
             <h1>Electricity Bill at OneClick</h1>
             <p>Check and manage all your electricity, gas, water, and internet bills in one place. Save your reference numbers and access any bill with just a single tap.</p>
             <div class="hero-buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.epicx.apps.oneclicktoanybill" class="btn-primary" target="_blank">
-                    <span class="play-icon">▶</span> Download on Google Play
+                <a href="https://play.google.com/store/apps/details?id=com.epicx.apps.oneclicktoanybill" class="btn-google-play" target="_blank">
+                    <img src="application-Images/get-it-from-google-play.png" alt="Get it on Google Play">
                 </a>
                 <a href="#features" class="btn-secondary">
                     Learn More ↓
@@ -615,8 +646,8 @@
         <div class="cta-box">
             <h2>Ready to Simplify Your Bills?</h2>
             <p>Download now and manage all your utility bills with just one click.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.epicx.apps.oneclicktoanybill" class="btn-primary" target="_blank">
-                <span class="play-icon">▶</span> Get it on Google Play
+            <a href="https://play.google.com/store/apps/details?id=com.epicx.apps.oneclicktoanybill" class="btn-google-play" target="_blank">
+                <img src="application-Images/get-it-from-google-play.png" alt="Get it on Google Play">
             </a>
         </div>
     </section>
@@ -626,7 +657,9 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo">
-                    <div class="logo-icon">⚡</div>
+                    <div class="logo-icon">
+                        <img src="application-Images/epicxapps_logo_t.png" alt="EpicX Apps Logo">
+                    </div>
                     <span class="logo-text">EpicX Apps</span>
                 </div>
                 <p>Simplifying bill management for thousands of users across Pakistan. One app for all your utility bills.</p>
