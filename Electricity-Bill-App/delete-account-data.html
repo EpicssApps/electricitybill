@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account & Data — Electricity Bill at OneClick</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 680px;
+            margin: -20px auto 40px;
+            padding: 0 16px;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 20px;
+        }
+
+        .warning-box p {
+            color: #e65100;
+            font-weight: 500;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Steps */
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 6px;
+        }
+
+        .step-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #1a1a2e;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .step-content .highlight {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1a73e8;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .step-content .danger {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* Data List */
+        .data-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .data-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+
+        .data-list li::before {
+            content: "🗑️";
+            font-size: 16px;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0d47a1;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: #1565c0;
+            margin-bottom: 16px;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
+
+        .contact-card a:hover {
+            background: #0d47a1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .footer a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        /* Play Store Badge */
+        .badge {
+            display: inline-block;
+            background: #1a1a2e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-top: 12px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 30px 16px; }
+            .header h1 { font-size: 20px; }
+            .card { padding: 20px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>🗑️ Delete Account & Data</h1>
+        <p>Electricity Bill at OneClick — by Epix Apps</p>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- Warning -->
+        <div class="card">
+            <div class="warning-box">
+                <p>⚠️ Deleting your account and data is permanent and cannot be undone. Please make sure you want to proceed before following these steps.</p>
+            </div>
+            <p>If you wish to delete your account and all associated data from the <strong>Electricity Bill at OneClick</strong> app, you can do so directly from within the app by following the simple steps below.</p>
+        </div>
+
+        <!-- What Gets Deleted -->
+        <div class="card">
+            <h2>📋 What data will be deleted?</h2>
+            <p>When you delete your account and data, the following information will be permanently removed:</p>
+            <ul class="data-list">
+                <li>All saved bill reference numbers (Electricity, Gas, Water, Internet)</li>
+                <li>All bill history stored locally on your device</li>
+                <li>Your Google Drive cloud backup data</li>
+                <li>Your Google Account connection to this app</li>
+                <li>All personalized bill names and settings</li>
+            </ul>
+        </div>
+
+        <!-- Steps -->
+        <div class="card">
+            <h2>📱 How to delete your data from the App</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Open the App</h3>
+                        <p>Open the <strong>Electricity Bill at OneClick</strong> app on your Android device.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Go to the About Tab</h3>
+                        <p>Tap on the <strong>"About"</strong> tab at the bottom navigation bar of the app.</p>
+                        <span class="highlight">Bottom Navigation → About</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Scroll Down</h3>
+                        <p>Scroll down to find the <strong>"Account & Data Management"</strong> section at the bottom of the screen.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Tap "Delete Account & Data"</h3>
+                        <p>Tap on the <strong style="color: #D32F2F;">Delete Account & Data</strong> button. A warning dialog will appear explaining what data will be deleted.</p>
+                        <span class="highlight danger">Delete Account & Data</span>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Confirm by Typing "DELETE"</h3>
+                        <p>To prevent accidental deletion, you will be asked to type <strong>"DELETE"</strong> in a text field and tap the confirm button.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Done! ✅</h3>
+                        <p>All your data (local + cloud) will be permanently deleted and your Google Account will be disconnected from the app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Retention -->
+        <div class="card">
+            <h2>⏰ Data Retention</h2>
+            <p>Once you confirm the deletion:</p>
+            <ul class="data-list">
+                <li>Local data is deleted immediately from your device</li>
+                <li>Cloud backup is deleted immediately from Google Drive</li>
+                <li>Google Account access is revoked instantly</li>
+                <li>No data is retained after deletion</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-card">
+            <h3>📧 Need Help?</h3>
+            <p>If you are unable to delete your data from the app or have any questions, you can request data deletion by contacting us via email.</p>
+            <a href="mailto:epicssapps@gmail.com?subject=Delete%20My%20Account%20%26%20Data%20-%20Electricity%20Bill%20App&body=Please%20delete%20all%20my%20data%20associated%20with%20my%20account.%0A%0AMy%20Google%20Account%20Email%3A%20%5Byour%20email%5D%0A%0AThank%20you.">📩 Email Us for Data Deletion</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024–2026 Epix Apps. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="https://epicxapps.com/Electricity-Bill-App/privacy-policy.html">Privacy Policy</a> ·
+            <a href="https://epicxapps.com/Electricity-Bill-App/Terms-of-Service.html">Terms of Service</a>
+        </p>
+        <p style="margin-top: 8px;">
+            <a href="https://play.google.com/store/apps/details?id=com.epicx.apps.oneclicktoanybill" class="badge">📲 Get it on Google Play</a>
+        </p>
+    </div>
+
+</body>
+</html>
+
