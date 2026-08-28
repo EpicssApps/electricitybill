@@ -1,0 +1,13 @@
+[{
+  "relation": [
+    "delegate_permission/common.handle_all_urls",
+    "delegate_permission/common.get_login_creds"
+  ],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.epicx.apps.oneclicktoanybill",
+    "sha256_cert_fingerprints": [
+      "05:AC:CD:5C:AD:8E:A4:18:0C:4C:69:46:87:2D:E4:B5:9B:3E:F0:A9:DF:85:5C:7C:AC:D0:23:56:65:9A:E0:0C"
+    ]
+  }
+}]
