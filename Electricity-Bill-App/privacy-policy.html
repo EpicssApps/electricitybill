@@ -115,7 +115,7 @@
 
     <div class="container">
 
-        <p class="effective-date"><strong>Effective Date:</strong> April 1, 2026</p>
+        <p class="effective-date"><strong>Last Updated:</strong> May 22, 2024</p>
 
         <!-- EpicX Apps -->
         <div class="section">
@@ -284,6 +284,15 @@
             <ul>
                 <li><strong>Your Google Account email address</strong> — used solely to identify your account within the app and display your sign-in status.</li>
                 <li><strong>Google Drive Application Data folder (appDataFolder)</strong> — a private, hidden folder on your Google Drive that is only accessible by this Application. We do NOT access, read, modify, or view any other files or data in your Google Drive.</li>
+            </ul>
+
+            <h3>Data Synchronization and Foreground Services</h3>
+            <p>
+                To ensure the reliability of your data, the Application uses **Foreground Services** (specifically of type <code>dataSync</code>) to perform backup and restore operations.
+            </p>
+            <ul>
+                <li>These services ensure that your data synchronization with Google Drive is not interrupted, even if the application is in the background.</li>
+                <li>A persistent notification is displayed while these tasks are active to keep you informed of the progress and protect your data from corruption during network transitions.</li>
             </ul>
 
             <h3>What Data Is Stored in Google Drive</h3>
@@ -658,6 +667,8 @@
             <ul>
                 <li><strong>INTERNET</strong> — Required to fetch bill information from utility company websites, display advertisements, and communicate with Google Drive for backup/restore.</li>
                 <li><strong>ACCESS_NETWORK_STATE / CHANGE_NETWORK_STATE</strong> — Used to check network connectivity.</li>
+                <li><strong>FOREGROUND_SERVICE & FOREGROUND_SERVICE_DATA_SYNC</strong> — Used to ensure reliable and uninterrupted synchronization (Backup & Restore) of your data with Google Drive, even when the app is in the background.</li>
+                <li><strong>POST_NOTIFICATIONS</strong> — Required to show you the progress and status of your data synchronization tasks and bill due date reminders.</li>
                 <li><strong>READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE</strong> (Android 12 and below) — Used for saving and accessing downloaded bill PDFs.</li>
                 <li><strong>Google Sign-In (OAuth 2.0)</strong> — Used to authenticate your Google Account for the backup and restore feature. Only your email address and Drive Application Data folder access are requested.</li>
             </ul>
